@@ -1,0 +1,45 @@
+这里是web模块、
+
+    其中有四种配置文件放法以及优先程度：
+
+        配置文件的优先级(从大到小)
+        根目录/config/aplication.properites
+        根目录/aplication.properties
+        根目录/src/resources/config/aplication.properties
+        根目录/src/resources/aplication.properties
+
+    几种开发模式的配置：
+
+        在开发时和生产时以及测试时我们的数据库使用的是不同的配置，如果来回切换的话很麻烦，所以springBoot出现了多环境配置（开发，生产，测试）。
+        开发环境（application-dev.properties）：
+        #开发环境
+        #tomcat服务器端口
+        server.port=8081
+        生产环境（application-prod.properties）：
+        #生产环境
+        #tomcat服务器端口
+        server.port=8082
+        测试环境（application-test.properties）：
+        #测试环境
+        #tomcat服务器端口
+        server.port=8083
+        默认环境（application.properties）：
+        #主配置文件，配置了这个会优先读取里面的属性覆盖主配置文件的属性
+        spring.profiles.active=dev (将使用开发模式的配置文件)
+        #项目会应用开发环境中的服务器端口号8081
+        #tomcat服务器端口（默认）
+        server.port=8080
+
+    自定义属性：
+
+        在application.properties文件中创建：
+            shuZi.zs = 张三   ## ${random.value} 指的是32位的随机数
+
+        在bean类中 使用@propertySource(classpath:xxx)：
+        使用@value("${shuZi.zs}")
+        即可使用 详情看application.properties
+
+        ----- 自定义 xxx.properties
+            新建 value.properties
+
+        在使用时
