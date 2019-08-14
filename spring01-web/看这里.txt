@@ -1,6 +1,6 @@
 这里是web模块、
 
-    其中有四种配置文件放法以及优先程度：
+    →→→其中有四种配置文件放法以及优先程度：
 
         配置文件的优先级(从大到小)
         根目录/config/aplication.properites
@@ -8,7 +8,7 @@
         根目录/src/resources/config/aplication.properties
         根目录/src/resources/aplication.properties
 
-    几种开发模式的配置：
+    →→→几种开发模式的配置：
 
         在开发时和生产时以及测试时我们的数据库使用的是不同的配置，如果来回切换的话很麻烦，所以springBoot出现了多环境配置（开发，生产，测试）。
         开发环境（application-dev.properties）：
@@ -30,7 +30,7 @@
         #tomcat服务器端口（默认）
         server.port=8080
 
-    自定义属性：
+    →→→自定义属性：
 
         在application.properties文件中创建：
             shuZi.zs = 张三   ## ${random.value} 指的是32位的随机数
@@ -39,7 +39,11 @@
         使用@value("${shuZi.zs}")
         即可使用 详情看application.properties
 
-        ----- 自定义 xxx.properties
+-   -   -   -   -   -   -   - 使用自定义的 xxx.properties -   -   -   -   -   -   -   -   -   -   -
+
+        自定义 xxx.properties
             新建 value.properties
 
-        在使用时
+        在使用时在Bean类的类名上添加
+        @PropertySource(classpath:xxx)
+        @ConfigurationProperties(prefix="")
