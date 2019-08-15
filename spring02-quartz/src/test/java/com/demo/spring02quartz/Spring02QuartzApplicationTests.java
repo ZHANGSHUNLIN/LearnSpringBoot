@@ -1,4 +1,4 @@
-package com.demo.spring01.spring01web;
+package com.demo.spring02quartz;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class Spring01WebApplicationTests {
+public class Spring02QuartzApplicationTests {
 
     @Test
     public void contextLoads() {

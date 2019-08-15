@@ -8,10 +8,11 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.demo.spring01</groupId>
+    <groupId>com.demo.springBoot</groupId>
     <artifactId>spring01-web</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>spring01-web</name>
+    <packaging>jar</packaging>
     <description>Demo project for Spring Boot</description>
 
     <properties>

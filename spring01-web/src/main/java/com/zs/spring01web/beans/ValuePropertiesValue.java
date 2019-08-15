@@ -1,4 +1,4 @@
-package com.demo.spring01.spring01web.beans;
+package com.zs.spring01web.beans;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;

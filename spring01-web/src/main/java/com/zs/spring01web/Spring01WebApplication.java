@@ -1,4 +1,4 @@
-package com.demo.spring01.spring01web;
+package com.zs.spring01web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
