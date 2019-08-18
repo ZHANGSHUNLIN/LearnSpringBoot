@@ -22,15 +22,16 @@ import java.util.Map;
 @Component
 public class MyWebSocketHandler implements WebSocketHandler {
 
-    private static Map<String,WebSocketSession> userIdMap = new HashMap<>();
+    private static Map<String, WebSocketSession> userIdMap = new HashMap<>();
 
     @Autowired
     private ObjectMapper jackson;
 
     @Override
     public void afterConnectionEstablished(WebSocketSession webSocketSession) throws Exception {
-        System.out.println("@OnOpen webSocketSession中的userName=>"+webSocketSession.getAttributes().get("userName"));//取出weSocketSession中的当前用户名称
-        System.out.println("@OnOpen webSocketSession中的uId=>"+webSocketSession.getAttributes().get("uId"));//取出weSocketSession中的当前用户Id
+        System.out.println("@OnOpen webSocketSession中的userName=>" + webSocketSession.getAttributes().get("userName"));//取出weSocketSession中的当前用户名称
+        System.out.println("@OnOpen webSocketSession中的uId=>" + webSocketSession.getAttributes().get("uId"));
+        //取出weSocketSession中的当前用户Id
         String uId = (String) webSocketSession.getAttributes().get("uId");
         if (uId != null) {
             userIdMap.put(uId, webSocketSession);//客户端连接服务器时,把当前用户Id和当前用户weSocketSession存储起来备用,以后用weSocketSession给客户端发消息
@@ -41,7 +42,7 @@ public class MyWebSocketHandler implements WebSocketHandler {
 
     @Override
     public void handleMessage(WebSocketSession webSocketSession, WebSocketMessage<?> webSocketMessage) throws Exception {
-        System.err.println("@OnMessage服务器接收到客户端的数据=>"+webSocketMessage.getPayload().toString());
+        System.err.println("@OnMessage服务器接收到客户端的数据=>" + webSocketMessage.getPayload().toString());
         if (webSocketMessage.getPayloadLength() == 0) {
             return;
         }
@@ -59,14 +60,15 @@ public class MyWebSocketHandler implements WebSocketHandler {
     @Override
     public void handleTransportError(WebSocketSession webSocketSession, Throwable throwable) throws Exception {
         String uId = (String) webSocketSession.getAttributes().get("uId");
-        System.err.println("@OnError服务器与"+uId+"客户端"+webSocketSession.getAttributes().get("userName")+"通信异常错误=>"+throwable);
+        System.err.println("@OnError服务器与" + uId + "客户端" + webSocketSession.getAttributes().get("userName") +
+                "通信异常错误=>" + throwable);
     }
 
     @Override
     public void afterConnectionClosed(WebSocketSession webSocketSession, CloseStatus closeStatus) throws Exception {
         String uId = (String) webSocketSession.getAttributes().get("uId");
         // 移除WebSocket会话
-        System.out.println("@OnClose客户端浏览器关闭"+uId+"客户端"+webSocketSession.getAttributes().get("userName"));
+        System.out.println("@OnClose客户端浏览器关闭" + uId + "客户端" + webSocketSession.getAttributes().get("userName"));
         //移除已经关闭的客户端
         userIdMap.remove(uId);
     }
@@ -78,11 +80,12 @@ public class MyWebSocketHandler implements WebSocketHandler {
 
     /**
      * 给某个用户发送消息
+     *
      * @param message 信息
-     * @param uid 信息
+     * @param uid     信息
      * @throws IOException 读写一场
      */
-    private void sendMessageToUser(String uid, String message)throws IOException {
+    private void sendMessageToUser(String uid, String message) throws IOException {
         WebSocketSession session = userIdMap.get(uid);
         if (session != null && session.isOpen()) {
             session.sendMessage(new TextMessage(message));
@@ -92,6 +95,7 @@ public class MyWebSocketHandler implements WebSocketHandler {
     /**
      * 给所有在线用户发送消息
      * 多线程发送
+     *
      * @param message
      * @throws IOException
      */
@@ -102,19 +106,19 @@ public class MyWebSocketHandler implements WebSocketHandler {
         while (it.hasNext()) {
             final Map.Entry<String, WebSocketSession> entry = it.next();
             if (entry.getValue().isOpen()) {
-        // entry.getValue().sendMessage(message);
+                // entry.getValue().sendMessage(message);
 
                 new Thread(new Runnable() {
-                 @Override
-                 public void run() {
-                try {
-                    if (entry.getValue().isOpen()) {
-                        entry.getValue().sendMessage(textMessage);
+                    @Override
+                    public void run() {
+                        try {
+                            if (entry.getValue().isOpen()) {
+                                entry.getValue().sendMessage(textMessage);
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
                 }).start();
             }
         }

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class TestController {
     @RequestMapping("/jsp")
-    public String getTest01(){
+    public String getTest01() {
         return "index";
     }
 }

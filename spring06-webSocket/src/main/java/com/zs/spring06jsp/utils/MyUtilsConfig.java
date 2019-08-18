@@ -1,4 +1,4 @@
-package com.zs.spring06jsp.util;
+package com.zs.spring06jsp.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.context.annotation.Bean;
@@ -19,18 +19,21 @@ import java.text.SimpleDateFormat;
 public class MyUtilsConfig {
     /**
      * 往Spring容器中放入一个ObjectMapper实例对象
+     *
      * @return
      */
     @Bean("jackson")
-    public ObjectMapper jacksonBean(){
+    public ObjectMapper jacksonBean() {
         return new ObjectMapper();
     }
+
     /**
      * 往Spring容器中放入一个SimpleDateFormat实例对象
+     *
      * @return
      */
     @Bean("dateFormat")
-    public SimpleDateFormat dateFormatBean(){
+    public SimpleDateFormat dateFormatBean() {
         return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     }
 }

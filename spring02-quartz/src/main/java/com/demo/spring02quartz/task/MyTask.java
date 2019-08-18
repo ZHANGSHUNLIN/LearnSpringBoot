@@ -15,8 +15,8 @@ import org.springframework.stereotype.Component;
 public class MyTask {
     private int count;
 
-    public void say(){
-        System.out.println("任务调度==>"+count++);
+    public void say() {
+        System.out.println("任务调度==>" + count++);
     }
 
 }

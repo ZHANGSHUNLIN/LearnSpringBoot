@@ -17,7 +17,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 @SpringBootApplication
 public class Spring07JspApplication extends SpringBootServletInitializer {
     public static void main(String[] args) {
-        SpringApplication.run(Spring07JspApplication.class,args);
+        SpringApplication.run(Spring07JspApplication.class, args);
     }
 
     @Override

@@ -24,7 +24,7 @@ public class TestController {
     private StudentDao studentDao;
 
     @RequestMapping("/get")
-    public List<Student> getTest01(){
+    public List<Student> getTest01() {
         return studentDao.getStudent();
     }
 }

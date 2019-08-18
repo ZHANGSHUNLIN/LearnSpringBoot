@@ -18,7 +18,7 @@ public class ApplicationPropertiesValue {
     @Value("${properties.name}")
     private String str;
 
-    public String getRandomValue(){
+    public String getRandomValue() {
         return str;
     }
 

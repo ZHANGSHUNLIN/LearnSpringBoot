@@ -18,7 +18,7 @@ import java.util.Date;
 @Configuration
 public class QuartzConfig {
     @Bean("dateFormat")
-    public SimpleDateFormat simpleDateFormate(){
+    public SimpleDateFormat simpleDateFormate() {
         return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     }
 

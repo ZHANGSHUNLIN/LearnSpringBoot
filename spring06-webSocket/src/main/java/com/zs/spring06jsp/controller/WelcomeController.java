@@ -22,11 +22,14 @@ public class WelcomeController {
      */
     @RequestMapping("/")
     public String index(HttpSession session) {
-        session.setAttribute("uId", this.randomUserId());//在用户登录成功后设置用户登录信息
-        session.setAttribute("userName", "你猜我是谁" + UUID.randomUUID());//在用户登录成功后设置用户登录信息
-        return "forward:index.html";//重定向到首页 public/index.html
-//return "forward:/stu/login.html";//默认转发
-//return "/login.html";//默认转发
+        //在用户登录成功后设置用户登录信息
+        session.setAttribute("uId", this.randomUserId());
+        //在用户登录成功后设置用户登录信息
+        session.setAttribute("userName", "你猜我是谁" + UUID.randomUUID());
+        //重定向到首页 public/index.html
+        return "forward:index.html";
+        //return "forward:/stu/login.html";//默认转发
+        //return "/login.html";//默认转发
     }
 
     /**

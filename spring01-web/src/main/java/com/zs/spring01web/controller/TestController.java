@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>
- *  springBoot-Web 属性自定义
+ * springBoot-Web 属性自定义
  * </p>
  *
  * @Author: Shun
@@ -28,17 +28,17 @@ public class TestController {
     private ValuePropertiesValue valuePropertiesValue;
 
     @RequestMapping(value = "hello")
-    public String hello(){
+    public String hello() {
         return random;
     }
 
     @RequestMapping(value = "value")
-    public ValuePropertiesValue hello01(){
+    public ValuePropertiesValue hello01() {
         return valuePropertiesValue;
     }
 
     @RequestMapping(value = "str01")
-    public String hello02(){
+    public String hello02() {
         return "李四";
     }
 

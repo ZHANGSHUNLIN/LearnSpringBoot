@@ -27,6 +27,13 @@ public class ValuePropertiesValue {
     public ValuePropertiesValue() {
     }
 
+    public ValuePropertiesValue(String name, String random_value, String value01, String value02) {
+        this.name = name;
+        this.random_value = random_value;
+        this.value01 = value01;
+        this.value02 = value02;
+    }
+
     public String getName() {
         return name;
     }
@@ -56,13 +63,6 @@ public class ValuePropertiesValue {
     }
 
     public void setValue02(String value02) {
-        this.value02 = value02;
-    }
-
-    public ValuePropertiesValue(String name, String random_value, String value01, String value02) {
-        this.name = name;
-        this.random_value = random_value;
-        this.value01 = value01;
         this.value02 = value02;
     }
 }

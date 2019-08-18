@@ -21,16 +21,16 @@ import java.util.Map;
 public class TestController {
 
     @RequestMapping(value = "/free")
-    public String freeMark(Map<String,Object> map){
-        map.put("name","joe");
-        map.put("sex",1);
+    public String freeMark(Map<String, Object> map) {
+        map.put("name", "joe");
+        map.put("sex", 1);
 
         /*模拟数据*/
         List<Map<String, Object>> friends = new ArrayList<>();
 
         Map<String, Object> friend = new HashMap<>();
-        friend.put("name","xbq");
-        friend.put("age",22);
+        friend.put("name", "xbq");
+        friend.put("age", 22);
         friends.add(friend);
 
         friend = new HashMap<>();

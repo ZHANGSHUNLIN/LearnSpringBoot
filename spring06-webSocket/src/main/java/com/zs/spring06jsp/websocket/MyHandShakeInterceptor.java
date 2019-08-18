@@ -29,10 +29,10 @@ public class MyHandShakeInterceptor implements HandshakeInterceptor {
             ServletServerHttpRequest servletServerHttpRequest = (ServletServerHttpRequest) serverHttpRequest;
             HttpSession httpSession = servletServerHttpRequest.getServletRequest().getSession(false);
             String sessionId = httpSession.getId();
-            System.out.println("HandshakeInterceptor 开始处理一次WebSocket服务sessionId=>"+sessionId);
-            System.out.println("HttpSession中的userName=>"+httpSession.getAttribute("userName"));
-            System.out.println("HttpSession中的uId=>"+httpSession.getAttribute("uId"));
-            System.out.println("HandshakeInterceptor WebSocketSession中的uId设置值之前 =>"+map.get("uId"));
+            System.out.println("HandshakeInterceptor 开始处理一次WebSocket服务sessionId=>" + sessionId);
+            System.out.println("HttpSession中的userName=>" + httpSession.getAttribute("userName"));
+            System.out.println("HttpSession中的uId=>" + httpSession.getAttribute("uId"));
+            System.out.println("HandshakeInterceptor WebSocketSession中的uId设置值之前 =>" + map.get("uId"));
             // 标记用户
             String uId = (String) httpSession.getAttribute("uId");
             if (uId != null) {
@@ -52,6 +52,6 @@ public class MyHandShakeInterceptor implements HandshakeInterceptor {
         ServletServerHttpRequest servletServerHttpRequest = (ServletServerHttpRequest) serverHttpRequest;
         HttpSession httpSession = servletServerHttpRequest.getServletRequest().getSession(false);
         String sessionId = httpSession.getId();
-        System.out.println("在握手之后执行该方法.处理完一次WebSocket服务 sessionId=>"+sessionId);
+        System.out.println("在握手之后执行该方法.处理完一次WebSocket服务 sessionId=>" + sessionId);
     }
 }

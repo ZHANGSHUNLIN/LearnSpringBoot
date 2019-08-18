@@ -14,7 +14,9 @@ import java.util.List;
  * @Emil: 381889220@qq.com
  */
 public interface StudentDao {
-    /**获取所有的学生信息
+    /**
+     * 获取所有的学生信息
+     *
      * @return 学生集合
      */
     List<Student> getStudent();

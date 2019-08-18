@@ -28,7 +28,6 @@ public class MyWebSocketConfig extends WebMvcConfigurerAdapter implements WebSoc
 
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry webSocketHandlerRegistry) {
-        System.out.println(123);
         //WebSocket通道
         webSocketHandlerRegistry.addHandler(myWebSocketHandler, "/myWebsocket").addInterceptors(new
                 MyHandShakeInterceptor());
@@ -36,7 +35,7 @@ public class MyWebSocketConfig extends WebMvcConfigurerAdapter implements WebSoc
                 MyHandShakeInterceptor()).withSockJS();
         //-------------------- 允许跨域访问WebSocket ------------------------
         String[] allowsOrigins = {"*"};//允许连接的域,只能以http或https开头
-        webSocketHandlerRegistry.addHandler(myWebSocketHandler,"/myWebsocket").setAllowedOrigins(allowsOrigins
+        webSocketHandlerRegistry.addHandler(myWebSocketHandler, "/myWebsocket").setAllowedOrigins(allowsOrigins
         )
                 .addInterceptors(new MyHandShakeInterceptor());
         webSocketHandlerRegistry.addHandler(myWebSocketHandler, "/myWebsocket/sockjs")

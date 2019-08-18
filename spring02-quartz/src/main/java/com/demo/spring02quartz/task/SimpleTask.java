@@ -29,10 +29,10 @@ public class SimpleTask {
     @Resource
     private QuartzConfig quartzConfig;
 
-    @Scheduled(fixedRate = 1000*3)
-    public void reportCurrTime(){
+    @Scheduled(fixedRate = 1000 * 3)
+    public void reportCurrTime() {
         myTask.say();
-        System.out.println("每隔三秒调用一次现在是："+quartzConfig.simpleDateFormate().format(new Date()));
+        System.out.println("每隔三秒调用一次现在是：" + quartzConfig.simpleDateFormate().format(new Date()));
     }
 
 }

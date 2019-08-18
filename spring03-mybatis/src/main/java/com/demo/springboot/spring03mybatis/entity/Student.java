@@ -23,11 +23,11 @@ import java.util.Date;
 @ToString
 public class Student {
 
-    private  Integer id;
-    private  String name;
-    private  String sex;
-    private  String phone;
-    private  String qq;
+    private Integer id;
+    private String name;
+    private String sex;
+    private String phone;
+    private String qq;
     private Date birthday;
     private String className;
     private Classes classes;

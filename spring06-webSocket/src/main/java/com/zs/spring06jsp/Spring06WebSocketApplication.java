@@ -15,14 +15,14 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  * @Emil: 381889220@qq.com
  */
 @SpringBootApplication
-public class Spring06JspApplication extends SpringBootServletInitializer {
+public class Spring06WebSocketApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
-        SpringApplication.run(Spring06JspApplication.class,args);
+        SpringApplication.run(Spring06WebSocketApplication.class, args);
     }
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(Spring06JspApplication.class);
+        return builder.sources(Spring06WebSocketApplication.class);
     }
 }

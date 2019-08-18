@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * <p>
  * 测试Controller
- *
- *      这个controller里抛出了RuntimeException 在 exception.advice包中的自定义的Handlers类
- *      就会处理
- *                          PS：处理是因为类里面写了RuntimeException的处理方法，详情请看Handlers类
+ * <p>
+ * 这个controller里抛出了RuntimeException 在 exception.advice包中的自定义的Handlers类
+ * 就会处理
+ * PS：处理是因为类里面写了RuntimeException的处理方法，详情请看Handlers类
  * </p>
  *
  * @Author: Shun
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
     @RequestMapping(value = "/test")
-    public String getTest(){
+    public String getTest() {
 
         if (1 == 1) {
             throw new RuntimeException();
