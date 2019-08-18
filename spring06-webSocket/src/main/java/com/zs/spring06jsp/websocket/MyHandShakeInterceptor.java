@@ -3,6 +3,7 @@ package com.zs.spring06jsp.websocket;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.http.server.ServletServerHttpRequest;
+import org.springframework.stereotype.Component;
 import org.springframework.web.socket.WebSocketHandler;
 import org.springframework.web.socket.server.HandshakeInterceptor;
 
@@ -23,7 +24,7 @@ public class MyHandShakeInterceptor implements HandshakeInterceptor {
     public boolean beforeHandshake(ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse,
                                    WebSocketHandler webSocketHandler, Map<String, Object> map) throws Exception {
         //取出javax.servlet.http.HttpSession中的 uId 属性值
-        System.out.println("在握手之前执行该方法.Websocket:用户连接成功 [HttpSession中属性 uId:" + ((ServletServerHttpRequest) serverHttpRequest).getServletRequest().getSession(false).getAttribute("uid"));
+        System.out.println("在握手之前执行该方法.Websocket:用户连接成功 [HttpSession中属性 uId:" + ((ServletServerHttpRequest) serverHttpRequest).getServletRequest().getSession(false).getAttribute("uId"));
         if (serverHttpRequest instanceof ServletServerHttpRequest) {
             ServletServerHttpRequest servletServerHttpRequest = (ServletServerHttpRequest) serverHttpRequest;
             HttpSession httpSession = servletServerHttpRequest.getServletRequest().getSession(false);
@@ -39,10 +40,9 @@ public class MyHandShakeInterceptor implements HandshakeInterceptor {
                 map.put("userName", httpSession.getAttribute("userName"));
             } else {
                 System.out.println("验证失败禁止放行。。。。");
-                return true;
+                return false;
             }
         }
-        System.out.println("验证失败禁止放行。。。。");
         return true;
     }
 

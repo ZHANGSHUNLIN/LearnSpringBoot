@@ -5,11 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-    111
+<input type="text" id="txt">
+<button onclick="sends()">发送，看idea的控制台</button>
 </body>
+
+
+
 <script type="text/javascript">
-    var wsurl = "ws://localhost:800/myWebsocket"; //WebSocket服务器地址
-    var sockurl = "ws:////localhost:800/myWebsocket/sockjs"; //基本没用
+    var wsurl = "ws://localhost:8080/myWebsocket"; //WebSocket服务器地址
+    var sockurl = "ws:////localhost:8080/myWebsocket/sockjs"; //基本没用
     var websocket;//声明一个WebSocket客户端
     //检测浏览器兼容性
     if ('WebSocket' in window) {
@@ -43,5 +47,12 @@
         console.log("WebSocket:已关闭");
         console.log(event);
     };
+</script>
+
+
+<script>
+    function sends() {
+        websocket.send(document.getElementById("txt").value);
+    }
 </script>
 </html>
