@@ -19,9 +19,13 @@
     </properties>
 
     <modules>
-        <module>
-            spring01-web
-        </module>
+        <module>spring01-web</module>
+        <module>spring02-quartz</module>
+        <module>spring03-mybatis</module>
+        <module>spring04-freemark</module>
+        <module>spring05-exception</module>
+        <module>spring06-webSocket</module>
+        <module>spring07-jsp</module>
     </modules>
 
     <packaging>pom</packaging>
