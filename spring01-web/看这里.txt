@@ -41,9 +41,14 @@
 
 -   -   -   -   -   -   -   - 使用自定义的 xxx.properties -   -   -   -   -   -   -   -   -   -   -
 
-        自定义 xxx.properties
-            新建 value.properties
-
         在使用时在Bean类的类名上添加
         @PropertySource(classpath:xxx)
         @ConfigurationProperties(prefix="")
+
+        spring可以把 .properties 文件加载到ioc容器中，我们可以填充一些Bean提供的占位符。
+        在类上使用 @PropertySource("classpath:xxx")注解来引入.properties文件
+            补充：使用@ConfigurationProperties(prefix="")来指定属性的前缀，当属性和.properties文件除去前缀的
+            属性一致时会自动绑定。
+
+
+        @Value和@configurationProperties的区别

@@ -23,18 +23,18 @@
     java
     |
     |_____ com.zs.spring06jsp
-          |
-          |config       //webSocket 的配置包
-          |
-          |controller   //controller
-          |
-          |handler      //WebSocket具体的业务包，处理包
-          |
-          |utils        //工具包
-          |
-          |websocket    //webSocket 的握手包（拦截）包
-          |
-          |Spring06WebSocketApplication.java //启动类
+    |      |
+    |      |config       //webSocket 的配置包
+    |      |
+    |      |controller   //controller
+    |      |
+    |      |handler      //WebSocket具体的业务包，处理包
+    |      |
+    |      |utils        //工具包
+    |      |
+    |      |websocket    //webSocket 的握手包（拦截）包
+    |      |
+    |      |Spring06WebSocketApplication.java //启动类
     
     
     

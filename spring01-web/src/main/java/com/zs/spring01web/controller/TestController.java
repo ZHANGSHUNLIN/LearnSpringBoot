@@ -1,5 +1,6 @@
 package com.zs.spring01web.controller;
 
+import com.zs.spring01web.beans.ApplicationPropertiesValue;
 import com.zs.spring01web.beans.ValuePropertiesValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * <p>
  * springBoot-Web 属性自定义
+ * {@code @PropertySource} 绑定一个properties配置文件，绑定后可以用{@code @Value}在属性上绑定需要的值即可。
+ * 下面的是一个绑定的示例。
  * </p>
  *
  * @Author: Shun
@@ -17,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Emil: 381889220@qq.com
  */
 @RestController
-@RequestMapping(value = "/test/")
+@RequestMapping(value = "/")
 @PropertySource("classpath:value.properties")
 public class TestController {
 
@@ -26,6 +29,9 @@ public class TestController {
 
     @Autowired
     private ValuePropertiesValue valuePropertiesValue;
+
+    @Autowired
+    private ApplicationPropertiesValue applicationPropertiesValue;
 
     @RequestMapping(value = "hello")
     public String hello() {
@@ -39,7 +45,12 @@ public class TestController {
 
     @RequestMapping(value = "str01")
     public String hello02() {
-        return "李四";
+        return applicationPropertiesValue.getRandomValue();
+    }
+
+    @RequestMapping(value = "hello02")
+    public String hello03() {
+        return valuePropertiesValue.getUuid();
     }
 
 }
